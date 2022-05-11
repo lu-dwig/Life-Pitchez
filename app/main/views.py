@@ -11,7 +11,7 @@ def index():
     advertisement = Pitch.query.filter_by(category = 'Advertisement').all()
     job = Pitch.query.filter_by(category = 'Job').all() 
     event = Pitch.query.filter_by(category = 'Events').all()
-    return render_template('index.html', job = job,event = event, pitches = pitches,advertisement= advertisement)
+    return render_template('index.html', job = job,advertisement= advertisement, event = event, pitches = pitches)
 
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required
@@ -21,8 +21,8 @@ def new_pitch():
         title = form.title.data
         post = form.post.data
         category = form.category.data
-        user_id = current_user
-        new_pitch_object = Pitch(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
+        user_id = current_user._get_current_object().id
+        new_pitch_object = Pitch(post=post,user_id=user_id,category=category,title=title)
         new_pitch_object.save_p()
         return redirect(url_for('main.index'))
         
