@@ -42,3 +42,26 @@
     border-radius: 8px;
     z-index: 1;
 }
+
+#login{
+    margin-top: 5%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.456);
+    border-radius: 8px;
+    padding:3%;
+}
+
+#sign{
+    color:rgb(0, 0, 0);
+    text-decoration: underline;
+}
+
+#coms{
+    color: white;
+}
+
+#allcomments{
+    padding-top: 2%;
+    border-radius: 10px;
+    height: 100%;  
+}
